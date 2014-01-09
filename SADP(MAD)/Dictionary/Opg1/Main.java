@@ -18,7 +18,8 @@ public class Main {
 		kunde.put(k3.getTlfNr(), k3);
 		kunde.put(k4.getTlfNr(), k4);
 		kunde.put(k5.getTlfNr(), k5);
-			
+		
+		System.out.println("Hashmap:\n");
 		for(String k : kunde.keySet()){
 			System.out.println(k);
 		}

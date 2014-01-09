@@ -5,12 +5,13 @@ import java.util.NoSuchElementException;
 
 public class ArrayDictionary<K, V> implements DictionaryI<K, V> {
 
-	private Entry[] entries;
+	private Entry<K, V>[] entries;
 	private int numberOfEntries;
 
+	@SuppressWarnings("unchecked")
 	public ArrayDictionary() {
-		entries = (Entry[]) new Object[10];
-		// entries = new Entry[10];
+		// entries = (Entry[]) new Object[10];
+		entries = new Entry[10];
 		numberOfEntries = 0;
 	}
 
@@ -21,14 +22,14 @@ public class ArrayDictionary<K, V> implements DictionaryI<K, V> {
 
 	@Override
 	public V put(K key, V value) {
-		Entry entry = entries[locateIndex(key)];
+		Entry<K, V> entry = entries[locateIndex(key)];
 		V result = null;
 		if (entry != null) {
 			result = entry.getValue();
 			entry.setValue(value);
 		} else {
 			ensureCapacity();
-			entries[numberOfEntries] = new Entry(key, value);
+			entries[numberOfEntries] = new Entry<K, V>(key, value);
 			numberOfEntries++;
 		}
 		return result;
@@ -37,7 +38,7 @@ public class ArrayDictionary<K, V> implements DictionaryI<K, V> {
 	@Override
 	public V remove(K key) {
 		int index = locateIndex(key);
-		Entry entry = entries[index];
+		Entry<K, V> entry = entries[index];
 		V value = null;
 		if (entry != null) {
 			entries[index] = entries[numberOfEntries - 1];
@@ -67,9 +68,10 @@ public class ArrayDictionary<K, V> implements DictionaryI<K, V> {
 		return numberOfEntries == 0;
 	}
 
+	@SuppressWarnings("unchecked")
 	private void ensureCapacity() {
 		if (numberOfEntries == entries.length) {
-			Entry[] newEntries = (Entry[]) new Object[2 * entries.length];
+			Entry<K, V>[] newEntries = new Entry[2 * entries.length];
 			int index = 0;
 			while (entries[index] != null) {
 				newEntries[index] = entries[index];
@@ -149,7 +151,8 @@ public class ArrayDictionary<K, V> implements DictionaryI<K, V> {
 
 	}
 
-	private class Entry {
+	@SuppressWarnings("hiding")
+	private class Entry<K, V> {
 		private K key;
 		private V value;
 
@@ -160,10 +163,6 @@ public class ArrayDictionary<K, V> implements DictionaryI<K, V> {
 
 		public K getKey() {
 			return key;
-		}
-
-		public void setKey(K key) {
-			this.key = key;
 		}
 
 		public V getValue() {

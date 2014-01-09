@@ -8,7 +8,7 @@ public class LinkedDictionary<K, V> implements DictionaryI<K, V> {
 	private int numberOfEntries;
 
 	public LinkedDictionary() {
-		firstNode = null;
+		firstNode = new Node();
 		numberOfEntries = 0;
 	}
 
@@ -16,40 +16,65 @@ public class LinkedDictionary<K, V> implements DictionaryI<K, V> {
 
 	@Override
 	public V get(K key) {
-		Node resultNode = null;
-		// TODO: Search for key!
+		Node temp = null;
+		boolean found = false;
+		while (!found && temp.next != null) {
+			if (temp.next.key.equals(key)) {
+				found = true;
+			} else {
+				temp = temp.next;
+			}
+		}
 		V result = null;
-		if (resultNode != null) {
-			result = resultNode.value;
+		if (found) {
+			result = temp.value;
 		}
 		return result;
 	}
 
 	@Override
 	public V put(K key, V value) {
-		// TODO Auto-generated method stub
-		Node resultNode = null;
-		// TODO: Search for key!
+
+		Node temp = firstNode;
+		boolean found = false;
 		V result = null;
-		if (resultNode.next.value.equals(value)) {
-			result = resultNode.next.value;
-			resultNode.next.value = value;
-		} else if (resultNode == null) {
-
-		} else {
-
+		while (!found && temp.next != null) {
+			if (temp.next.key.equals(key)) {
+				result = temp.next.value;
+				temp.next.value = value;
+				found = true;
+			} else {
+				temp = temp.next;
+			}
 		}
-
-		numberOfEntries++;
-		return null;
+		if (!found) {
+			Node newNode = new Node();
+			newNode.key = key;
+			newNode.value = value;
+			newNode.next = firstNode.next;
+			firstNode.next = newNode;
+			numberOfEntries++;
+		}
+		return result;
 	}
 
 	@Override
 	public V remove(K key) {
-		// TODO Auto-generated method stub
-
-		numberOfEntries--;
-		return null;
+		Node temp = firstNode;
+		boolean found = false;
+		V result = null;
+		while (!found && temp.next != null) {
+			if (temp.next.key.equals(key)) {
+				Node nodeToBeRemoved = temp.next;
+				temp.next = nodeToBeRemoved.next;
+				nodeToBeRemoved.next = null;
+				result = nodeToBeRemoved.value;
+				numberOfEntries--;
+			} else {
+				temp = temp.next;
+			}
+		}
+		return result;
 	}
 
 	@Override
@@ -74,46 +99,61 @@ public class LinkedDictionary<K, V> implements DictionaryI<K, V> {
 
 	private class LinkedDictionaryKeyIterator implements Iterator<K> {
 
+		private Node start;
+
+		public LinkedDictionaryKeyIterator() {
+			start = firstNode;
+		}
+
 		@Override
 		public boolean hasNext() {
-			// TODO Auto-generated method stub
-			return false;
+			return start.next != null;
 		}
 
 		@Override
 		public K next() {
-			// TODO Auto-generated method stub
-			return null;
+			if (hasNext()) {
+				start = start.next;
+				return start.key;
+
+			} else {
+				throw new RuntimeException("No keys");
+			}
 		}
 
 		@Override
 		public void remove() {
-			// TODO Auto-generated method stub
-
+			throw new UnsupportedOperationException();
 		}
-
 	}
 
 	private class LinkedDictionaryValueIterator implements Iterator<V> {
 
+		private Node start;
+
+		public LinkedDictionaryValueIterator() {
+			start = firstNode;
+		}
+
 		@Override
 		public boolean hasNext() {
-			// TODO Auto-generated method stub
-			return false;
+			return start.next != null;
 		}
 
 		@Override
 		public V next() {
-			// TODO Auto-generated method stub
-			return null;
+			if (hasNext()) {
+				start = start.next;
+				return start.value;
+			} else {
+				throw new RuntimeException("No values");
+			}
 		}
 
 		@Override
 		public void remove() {
-			// TODO Auto-generated method stub
-
+			throw new UnsupportedOperationException();
 		}
-
 	}
 
 	private class Node {
