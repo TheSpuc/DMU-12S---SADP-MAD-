@@ -4,6 +4,18 @@
 	<classpathentry kind="src" path="Generics"/>
 	<classpathentry kind="src" path="JavaBean"/>
 	<classpathentry kind="src" path="Stak"/>
+	<classpathentry kind="src" path="Queue"/>
+	<classpathentry kind="src" path="List"/>
+	<classpathentry kind="src" path="Decorator and Template Method"/>
+	<classpathentry kind="src" path="StatePattern"/>
+	<classpathentry kind="src" path="Iterator and Composite pattern"/>
+	<classpathentry kind="src" path="Dictionary"/>
+	<classpathentry kind="src" path="Hashing"/>
+	<classpathentry kind="src" path="Traeer"/>
+	<classpathentry kind="src" path="SoegeTraer"/>
+	<classpathentry kind="src" path="Grafer"/>
+	<classpathentry kind="src" path="GrafGennemloeb"/>
+	<classpathentry kind="src" path="Graf Algoritmer"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="ADT/src"/>
+	<classpathentry kind="src" path="DecorateAndTemplate/src"/>
+	<classpathentry kind="src" path="Dictionary/src"/>
+	<classpathentry kind="src" path="Generics/src"/>
+	<classpathentry kind="src" path="Hashing/src"/>
+	<classpathentry kind="src" path="Iterator&amp;Composite/src"/>
+	<classpathentry kind="src" path="JavaBean/src"/>
+	<classpathentry kind="src" path="List/src"/>
+	<classpathentry kind="src" path="Nodes/src"/>
+	<classpathentry kind="src" path="Queue&amp;Dequeue/src"/>
+	<classpathentry kind="src" path="Stack/src"/>
+	<classpathentry kind="src" path="State/src"/>
+	<classpathentry kind="src" path="Trees/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
