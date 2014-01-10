@@ -20,8 +20,8 @@ public class BinarySearchhtreeApp {
 		while (itr.hasNext()){
 			System.out.print(itr.next() + ", ");
 		}
-//		System.out.println();
-//		System.out.println("Maksimum er " + ((BinarySearchTreeOpgave)btree).findMax());
+		System.out.println();
+//		System.out.println("Maksimum er " + ((BinarySearchTree)btree).findMax());
 //		System.out.println("Minimum er slettet" + ((BinarySearchTreeOpgave)btree).removeMin());
 		itr = btree.inorderIterator();
 		while (itr.hasNext()){

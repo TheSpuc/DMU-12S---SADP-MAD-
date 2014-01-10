@@ -230,5 +230,7 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E>
 		throw new UnsupportedOperationException(
 				"Kan ikke indsætte vilkårligt i binærtsøgetræ");
 	}
+	
+	
 
 }
