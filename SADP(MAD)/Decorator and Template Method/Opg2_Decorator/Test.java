@@ -16,11 +16,11 @@ public class Test {
 		System.out.println(focus.getBeskrivelse());
 		System.out.println(focus.getPris());
 		focus = new LaederIndtraek(focus);
-		System.out.println(focus.getPris());
+		System.out.println("Added leather, price: " + focus.getPris());
 		focus = new Turbo(focus);
-		System.out.println(focus.getPris());
+		System.out.println("Added turbo, price: " + focus.getPris());
 		focus = new Metallak(focus);
-		System.out.println(focus.getBeskrivelse());
+		System.out.println("Added metalpaint\n" + focus.getBeskrivelse());
 		System.out.println(focus.getPris());
 	}
 

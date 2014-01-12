@@ -1,4 +1,4 @@
-package Opg2;
+package Opg2_DoesntWork;
 
 public class ClosedState implements DoorStateInterface {
 
