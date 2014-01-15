@@ -25,6 +25,7 @@ public class AppIndexList {
 		list.add(0, "Jonas");
 		list.add(0, "Simon");
 		list.add(0, "Mark");
+		
 		Iterator<String> it = list.iterator();
 		while (it.hasNext()) {
 			System.out.println(it.next());
@@ -61,6 +62,11 @@ public class AppIndexList {
 			it2.next();
 		} catch (NoSuchElementException e) {
 			System.out.println("cant do that, list empty");
+		}
+		
+		System.out.println("\n\n");
+		for(String s :list){
+			System.out.println(s);
 		}
 
 	}

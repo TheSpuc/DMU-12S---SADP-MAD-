@@ -1,8 +1,6 @@
 package Opg2_iterator;
 
-import java.util.Iterator;
-
-public interface IndexListI<E> {
+public interface IndexListI<E> extends Iterable<E> {
 	/**
 	 * @return returnerer elementet p� plads nummer i i listen
 	 * @throws IndexOutOfBoundsEception
@@ -18,8 +16,8 @@ public interface IndexListI<E> {
 	public E remove(int i);
 
 	/**
-	 * @return Inds�tter elementet e p� indeks plads i i listen. Elementerne p�
-	 *         plads i og frem, f�r indeks plads en h�jere
+	 * @return Inds�tter elementet e p� indeks plads i i listen. Elementerne
+	 *         p� plads i og frem, f�r indeks plads en h�jere
 	 * @throws IndexOutOfBoundsEception
 	 *             hvis i<0 eller i> antal elementer i listen
 	 */
@@ -45,7 +43,5 @@ public interface IndexListI<E> {
 	 * @return Returnerer om listen er tom
 	 */
 	public boolean isEmpty();
-
-	public Iterator<E> iterator();
 
 }
